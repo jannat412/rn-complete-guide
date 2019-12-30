@@ -7,7 +7,9 @@ If you are already familiar with mobile development, you may want to use React N
 
 Assuming that you have Node 10 LTS or greater installed, you can use npm to install the Expo CLI command line utility:
 
+```bash
 $npm install -g expo-cli
+```
 
 Then run the following commands to run this React Native project called "rn-complete-guide":
 
