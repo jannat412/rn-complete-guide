@@ -13,7 +13,9 @@ $npm install -g expo-cli
 
 Then run the following commands to run this React Native project called "rn-complete-guide":
 
+```bash
 $cd rn-complete-guide
 $npm start # you can also use: expo start
+```
 
 This will start a development server for you.
