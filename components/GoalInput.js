@@ -1,62 +1,52 @@
-import React, {useState} from 'react';
-import {StyleSheet, Button, View, TextInput, Modal, ToastAndroid} from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
 
 const GoalInput = props => {
-  const [enterGoal, setEnterGoal] = useState('');
-
-  const goalInputHandler = (enterGoal) =>{
-    setEnterGoal(enterGoal);
+  const [enterGoal, setEnteredGoal] = useState('');
+  const goalInputHandler = (enterGoal) => {
+    setEnteredGoal(enterGoal);
   };
-  const addGoalHandler = () =>{
+  const addGoalHander = () => {
     props.onAddGoal(enterGoal);
-    setEnterGoal('');
+    setEnteredGoal('');
   };
-  const goalCancalation = () =>{
+  const goalCancelation = () => {
     props.onCancel();
-    setEnterGoal('');
+    setEnteredGoal('');
   }
-
-  const CheckTextInput = () => {
-    if (enterGoal != '') {
-      addGoalHandler();
-      ToastAndroid.show(enterGoal+ ' added!', ToastAndroid.SHORT);
-    } else {
-      ToastAndroid.show('Please Enter Goals!', ToastAndroid.SHORT);
-    }
-  };
-
-  return(
-      <Modal visible = {props.visible} animationType = "slide">
-        <View style = {styles.inputContainer}>
-          <TextInput
-              placeholder = "Enter your goal"
-              style = {styles.input}
-              onChangeText ={ goalInputHandler }
-              value = {enterGoal}/>
-          <View style = {styles.buttonContainer}>
-            <View style = {styles.button}>
-              <Button title = "Cancel" color = "red" onPress = {goalCancalation}/>
-            </View>
-            <View style = {styles.button}>
-              <Button title = "Add" color = "blue" onPress = {CheckTextInput}/>
-            </View>
+  return (
+    <Modal visible={props.visible} animationType="slide">
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Goals"
+          style={styles.input}
+          onChangeText={goalInputHandler}
+          value={enterGoal} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.button}>
+            <Button title="Cancel" color="red" onPress={goalCancelation} />
+          </View>
+          <View style={styles.button} >
+            <Button title="add" onPress={addGoalHander} />
           </View>
         </View>
-      </Modal>
+      </View>
+    </Modal>
+
   );
 }
 
 export default GoalInput;
 
 const styles = StyleSheet.create({
-  inputContainer:{
+  inputContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  input:{
+  input: {
     width: '80%',
-    borderColor: 'blue',
+    borderColor: 'black',
     borderWidth: 1,
     padding: 10,
     marginBottom: 10
