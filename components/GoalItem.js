@@ -1,13 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ToastAndroid } from 'react-native';
 
 const GoalItem = props => {
+  const deleteItem = () =>{
+    props.onDelete();
+    ToastAndroid.show(props.title + ' deleted!', ToastAndroid.SHORT);
+  };
+
+  const clickedItem = () =>{
+    ToastAndroid.show(props.title + ' clicked!', ToastAndroid.SHORT);
+  };
   return (
-    <TouchableOpacity activeOpacity={0.6} onLongPress={props.onDelete}>
-      <View style={styles.listItem}>
-        <Text>{props.title}</Text>
-      </View>
-    </TouchableOpacity>
+      <TouchableOpacity activeOpacity = {0.6} onLongPress = {deleteItem} onPress = {clickedItem}>
+        <View style = {styles.listItem}>
+          <Text>{props.title}</Text>
+        </View>
+      </TouchableOpacity>
   );
 };
 
@@ -19,7 +27,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column-reverse',
     marginVertical: 10,
     backgroundColor: '#ccc',
-    borderColor: 'black',
+    borderColor: 'blue',
     borderWidth: 1
   }
 });
