@@ -13,7 +13,8 @@ const GoalItem = props => {
   return (
       <TouchableOpacity activeOpacity = {0.6} onLongPress = {deleteItem} onPress = {clickedItem}>
         <View style = {styles.listItem}>
-          <Text>{props.title}</Text>
+          <Text>Goal: {props.title}</Text>
+          <Text>Name: {props.names}</Text>
         </View>
       </TouchableOpacity>
   );
@@ -28,6 +29,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: '#ccc',
     borderColor: 'blue',
-    borderWidth: 1
+    borderWidth: 1,
+    transform: [{scaleY: -1}]
   }
 });
