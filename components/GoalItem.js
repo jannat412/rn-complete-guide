@@ -13,7 +13,7 @@ const GoalItem = props => {
   return (
       <TouchableOpacity activeOpacity = {0.6} onLongPress = {deleteItem} onPress = {clickedItem}>
         <View style = {styles.listItem}>
-          <Text>Goal: {props.title}</Text>
+          <Text>Designation: {props.title}</Text>
           <Text>Name: {props.names}</Text>
         </View>
       </TouchableOpacity>

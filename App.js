@@ -78,7 +78,7 @@ export default function App() {
 
   return (
       <View style={styles.container}>
-        <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
+        <Button title="Add New" onPress={() => setIsAddMode(true)} />
         <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} onCancel={goalOnCancelation} />
         <FlatList
             keyExtractor={(item, index) => item.id}
